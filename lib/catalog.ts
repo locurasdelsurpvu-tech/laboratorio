@@ -13,7 +13,6 @@ export interface Simulator {
 }
 
 export const SIMULATORS_CATALOG: Simulator[] = [
-  // ELECTRÓNICA - EMBEBIDO (PhET)
   {
     id: 'phet-circuit-dc',
     title: 'Kit de Construcción de Circuitos DC (PhET)',
@@ -30,7 +29,6 @@ export const SIMULATORS_CATALOG: Simulator[] = [
       'Analizar el comportamiento de la corriente al modificar la resistencia de los componentes.'
     ]
   },
-  // ELECTRÓNICA AVANZADA - EMBEBIDO (Falstad)
   {
     id: 'falstad-circuit-js',
     title: 'Simulador RLC & Electrónica Analógica (Falstad)',
@@ -47,7 +45,6 @@ export const SIMULATORS_CATALOG: Simulator[] = [
       'Construir esquemas de potencia y amplificación.'
     ]
   },
-  // FÍSICA - NATIVO
   {
     id: 'phys-spring-pendulum',
     title: 'Oscilador Masa-Resorte y Péndulo Armónico',
@@ -64,7 +61,6 @@ export const SIMULATORS_CATALOG: Simulator[] = [
     ],
     defaultParams: { mass: 2.0, k: 30, damping: 0.2 }
   },
-  // QUÍMICA - NATIVO
   {
     id: 'chem-acid-base',
     title: 'Titulación Ácido-Base & Medidor de pH',
@@ -81,7 +77,6 @@ export const SIMULATORS_CATALOG: Simulator[] = [
     ],
     defaultParams: { acidConc: 0.1, baseConc: 0.1, baseAdded: 0, acidVol: 25 }
   },
-  // BIOLOGÍA - NATIVO
   {
     id: 'bio-microscope-cell',
     title: 'Microscopio Virtual & División Celular (Mitosis)',
@@ -98,7 +93,6 @@ export const SIMULATORS_CATALOG: Simulator[] = [
     ],
     defaultParams: { zoom: 100, focus: 50, phase: 'Metafase' }
   },
-  // ELECTROMECÁNICA - NATIVO
   {
     id: 'electromech-star-delta',
     title: 'Motor Trifásico & Arranque Estrella-Triángulo (λ-Δ)',
