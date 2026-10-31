@@ -115,6 +115,63 @@ export const SIMULATORS_CATALOG: Simulator[] = [
     ]
   },
   {
+    id: 'phet-periodic-table-trends',
+    slug: 'phet-periodic-table-trends',
+    title: 'Tabla Periódica Interactiva & Tendencias Atómicas',
+    category: 'Química',
+    subject: 'Química',
+    topic: 'Química Inorgánica & Propiedades Periódicas',
+    difficulty: 'Básico',
+    type: 'iframe',
+    integrationType: 'embed',
+    provider: 'PhET Interactive Simulations',
+    embedUrl: 'https://phet.colorado.edu/sims/html/build-an-atom/latest/build-an-atom_all.html?loc=es',
+    description: 'Explora la tabla periódica, configuraciones electrónicas y tendencia de electronegatividad y radio atómico.',
+    theory: 'Las propiedades periódicas varían periódicamente en la tabla según la carga nuclear efectiva y la distribución de electrones.',
+    objectives: [
+      'Relacionar la posición del elemento con su masa y número atómico.',
+      'Comprender la formación de iones estables (octeto completo).'
+    ]
+  },
+  {
+    id: 'phet-bending-light',
+    slug: 'phet-bending-light',
+    title: 'Experimento de Refracción y Reflexión de la Luz (Óptica)',
+    category: 'Física',
+    subject: 'Física',
+    topic: 'Óptica Geométrica & Ley de Snell',
+    difficulty: 'Intermedio',
+    type: 'iframe',
+    integrationType: 'embed',
+    provider: 'PhET Interactive Simulations',
+    embedUrl: 'https://phet.colorado.edu/sims/html/bending-light/latest/bending-light_all.html?loc=es',
+    description: 'Apunta un láser a través de prismas y medios de distinto índice de refracción (agua, vidrio, aire).',
+    theory: 'La Ley de Snell ($n_1 \\sin \\theta_1 = n_2 \\sin \\theta_2$) describe cómo se desvía la luz al cambiar de medio de propagación.',
+    objectives: [
+      'Calcular el índice de refracción $n$ de materiales desconocidos.',
+      'Observar el fenómeno de reflexión interna total y el ángulo crítico.'
+    ]
+  },
+  {
+    id: 'phet-faraday-law',
+    slug: 'phet-faraday-law',
+    title: 'Experimento de Inducción de Faraday & Electromagnetismo',
+    category: 'Electromecánica',
+    subject: 'Electromecánica',
+    topic: 'Electromagnetismo & Generación Eléctrica',
+    difficulty: 'Intermedio',
+    type: 'iframe',
+    integrationType: 'embed',
+    provider: 'PhET Interactive Simulations',
+    embedUrl: 'https://phet.colorado.edu/sims/html/faradays-law/latest/faradays-law_all.html?loc=es',
+    description: 'Mueve un imán a través de bobinas electromagnéticas para generar fuerza electromotriz e iluminar una bombilla.',
+    theory: 'La Ley de Inducción de Faraday establece que un campo magnético variable en el tiempo induce una corriente eléctrica en un conductor.',
+    objectives: [
+      'Relacionar la velocidad de movimiento del imán con el voltaje inducido.',
+      'Comprender el principio de funcionamiento fundamental de generadores y motores.'
+    ]
+  },
+  {
     id: 'falstad-circuit-js',
     slug: 'falstad-circuit-js',
     title: 'Simulador RLC & Electrónica (Falstad)',
