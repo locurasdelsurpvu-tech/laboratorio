@@ -2,21 +2,23 @@ export type IntegrationType = 'embed' | 'native' | 'iframe';
 
 export interface Simulator {
   id: string;
-  slug?: string;
+  slug: string;
   title: string;
   category: 'Física' | 'Química' | 'Biología' | 'Electrónica' | 'Electromecánica';
-  subject?: string;
+  subject: string;
+  subjects: string[];
   topic: string;
   difficulty: 'Básico' | 'Intermedio' | 'Avanzado';
   type: IntegrationType;
-  integrationType?: IntegrationType;
+  integrationType: IntegrationType;
   embedUrl?: string;
-  provider?: string;
+  provider: string;
   description: string;
   theory: string;
   objectives: string[];
   defaultParams?: Record<string, any>;
-  tags?: string[];
+  tags: string[];
+  resources?: string[];
 }
 
 export const SIMULATORS_CATALOG: Simulator[] = [
@@ -27,6 +29,7 @@ export const SIMULATORS_CATALOG: Simulator[] = [
     title: 'Construye un Átomo & Tabla Periódica (PhET)',
     category: 'Química',
     subject: 'Química',
+    subjects: ['Química', 'Física Atómica'],
     topic: 'Estructura Atómica & Isótopos',
     difficulty: 'Básico',
     type: 'iframe',
@@ -40,7 +43,8 @@ export const SIMULATORS_CATALOG: Simulator[] = [
       'Determinar el número de masa (A) y número atómico (Z).',
       'Distinguir entre átomos neutros, iones positivos (cationes) y negativos (aniones).'
     ],
-    tags: ['atomo', 'tabla periodica', 'protones', 'electrones', 'neutrones', 'quimica']
+    tags: ['atomo', 'tabla periodica', 'protones', 'electrones', 'neutrones', 'quimica'],
+    resources: ['Guía de estructura atómica', 'Tabla de isótopos estables']
   },
   {
     id: 'phet-states-of-matter',
@@ -48,6 +52,7 @@ export const SIMULATORS_CATALOG: Simulator[] = [
     title: 'Estados de la Materia & Cambios de Fase (PhET)',
     category: 'Química',
     subject: 'Química',
+    subjects: ['Química', 'Fisicoquímica'],
     topic: 'Termodinámica & Estados Físicos',
     difficulty: 'Básico',
     type: 'iframe',
@@ -61,7 +66,8 @@ export const SIMULATORS_CATALOG: Simulator[] = [
       'Analizar diagramas de fase Temperatura vs. Presión.',
       'Comprender el efecto anómalo del agua y puentes de hidrógeno.'
     ],
-    tags: ['estados', 'solido', 'liquido', 'gas', 'temperatura', 'presion']
+    tags: ['estados', 'solido', 'liquido', 'gas', 'temperatura', 'presion'],
+    resources: ['Diagrama de fases en PDF', 'Guía de calor latente']
   },
   {
     id: 'phet-acid-base-solutions',
@@ -69,6 +75,7 @@ export const SIMULATORS_CATALOG: Simulator[] = [
     title: 'Soluciones Ácido-Base & Fuerza Relativa (PhET)',
     category: 'Química',
     subject: 'Química',
+    subjects: ['Química', 'Química Analítica'],
     topic: 'Equilibrio Químico & pH',
     difficulty: 'Intermedio',
     type: 'iframe',
@@ -76,13 +83,14 @@ export const SIMULATORS_CATALOG: Simulator[] = [
     provider: 'PhET Interactive Simulations',
     embedUrl: 'https://phet.colorado.edu/sims/html/acid-base-solutions/latest/acid-base-solutions_all.html?loc=es',
     description: 'Compara la disociación molecular de ácidos y bases fuertes vs. débiles empleando indicadores de conductividad y pH-metros.',
-    theory: 'Los ácidos fuertes se disocian completamente en agua produciendo concentraciones elevadas de $H_3O^+$, mientras que los ácidos débiles establecen un equilibrio químico parcial ($K_a$).',
+    theory: 'Los ácidos fuertes se disocian completamente en agua produciendo concentraciones elevadas de H3O+, mientras que los ácidos débiles establecen un equilibrio químico parcial (Ka).',
     objectives: [
       'Diferenciar entre fuerza ácida/básica y concentración molar.',
       'Medir la conductividad eléctrica de electrolitos fuertes y débiles.',
       'Relacionar la constante de disociación Ka con la concentración de iones.'
     ],
-    tags: ['acido', 'base', 'ph', 'disociacion', 'equilbrio', 'electrolito']
+    tags: ['acido', 'base', 'ph', 'disociacion', 'equilbrio', 'electrolito'],
+    resources: ['Escala de pH e indicadores', 'Tabla de constantes Ka y Kb']
   },
   {
     id: 'phet-molecule-shapes',
@@ -90,6 +98,7 @@ export const SIMULATORS_CATALOG: Simulator[] = [
     title: 'Geometría Molecular & Teoría VSEPR (PhET)',
     category: 'Química',
     subject: 'Química',
+    subjects: ['Química', 'Química Inorgánica'],
     topic: 'Enlace Químico & Estructura 3D',
     difficulty: 'Intermedio',
     type: 'iframe',
@@ -103,7 +112,8 @@ export const SIMULATORS_CATALOG: Simulator[] = [
       'Calcular ángulos de enlace reales considerando la repulsión de pares solitarios.',
       'Diferenciar entre geometría de electrones y geometría molecular.'
     ],
-    tags: ['vsepr', 'geometria molecular', 'enlace', 'angulos', 'electrones']
+    tags: ['vsepr', 'geometria molecular', 'enlace', 'angulos', 'electrones'],
+    resources: ['Guía ilustrada VSEPR', 'Tabla de geometrías moleculares']
   },
   {
     id: 'phet-molarity',
@@ -111,6 +121,7 @@ export const SIMULATORS_CATALOG: Simulator[] = [
     title: 'Molaridad & Concentración de Soluciones (PhET)',
     category: 'Química',
     subject: 'Química',
+    subjects: ['Química', 'Fisicoquímica'],
     topic: 'Soluciones Químicas & Concentración',
     difficulty: 'Básico',
     type: 'iframe',
@@ -118,13 +129,14 @@ export const SIMULATORS_CATALOG: Simulator[] = [
     provider: 'PhET Interactive Simulations',
     embedUrl: 'https://phet.colorado.edu/sims/html/molarity/latest/molarity_all.html?loc=es',
     description: 'Modifica la cantidad de soluto y el volumen de solución para medir cambios de Molaridad (M) y punto de saturación.',
-    theory: 'La molaridad representa el número de moles de soluto disueltos por litro de solución ($M = n / V$). Superado el límite de solubilidad, precipita el soluto en exceso.',
+    theory: 'La molaridad representa el número de moles de soluto disueltos por litro de solución (M = n / V). Superado el límite de solubilidad, precipita el soluto en exceso.',
     objectives: [
       'Calcular cuantitativamente la concentración molar.',
       'Observar el viraje de intensidad de color al diluir o evaporar solución.',
       'Identificar la concentración de saturación de varias sales.'
     ],
-    tags: ['molaridad', 'concentracion', 'soluto', 'solucion', 'saturacion']
+    tags: ['molaridad', 'concentracion', 'soluto', 'solucion', 'saturacion'],
+    resources: ['Fórmulas de concentración', 'Tabla de solubilidad']
   },
   {
     id: 'phet-gas-properties',
@@ -132,6 +144,7 @@ export const SIMULATORS_CATALOG: Simulator[] = [
     title: 'Propiedades de los Gases & Leyes Ideales (PhET)',
     category: 'Química',
     subject: 'Química',
+    subjects: ['Química', 'Física'],
     topic: 'Físico-Química & Gases Ideales',
     difficulty: 'Intermedio',
     type: 'iframe',
@@ -145,7 +158,8 @@ export const SIMULATORS_CATALOG: Simulator[] = [
       'Relacionar la energía cinética media molecular con la temperatura en Kelvin.',
       'Analizar las colisiones contra las paredes del recipiente.'
     ],
-    tags: ['gases', 'presion', 'volumen', 'temperatura', 'boyle', 'charles']
+    tags: ['gases', 'presion', 'volumen', 'temperatura', 'boyle', 'charles'],
+    resources: ['Leyes de los gases ideales', 'Conversión de unidades de presión']
   },
   {
     id: 'chem-acid-base',
@@ -153,11 +167,12 @@ export const SIMULATORS_CATALOG: Simulator[] = [
     title: 'Titulación Ácido-Base & Medidor de pH',
     category: 'Química',
     subject: 'Química',
+    subjects: ['Química', 'Química Analítica'],
     topic: 'Química Analítica & Volumetría',
     difficulty: 'Básico',
     type: 'native',
     integrationType: 'native',
-    provider: 'Nativo LabVirtual',
+    provider: 'Laboratorio Virtual E.E.S.T. N.º 6',
     description: 'Simulador de volumetría de neutralización con indicación cromática de fenolftaleína y gráfica de pH.',
     theory: 'La titulación determina la concentración de un ácido disuelto mediante la adición controlada de una base de concentración conocida hasta alcanzar el punto de equivalencia.',
     objectives: [
@@ -166,7 +181,8 @@ export const SIMULATORS_CATALOG: Simulator[] = [
       'Calcular la molaridad del ácido desconocido.'
     ],
     defaultParams: { acidConc: 0.1, baseConc: 0.1, baseAdded: 0, acidVol: 25 },
-    tags: ['ph', 'acido', 'base', 'titulacion', 'quimica']
+    tags: ['ph', 'acido', 'base', 'titulacion', 'quimica'],
+    resources: ['Manual de volumetría', 'Cálculos estequiométricos de titulación']
   },
 
   // ================= FÍSICA (8 SIMULADORES) =================
@@ -176,6 +192,7 @@ export const SIMULATORS_CATALOG: Simulator[] = [
     title: 'Refracción de Luz & Ley de Snell (PhET)',
     category: 'Física',
     subject: 'Física',
+    subjects: ['Física', 'Óptica'],
     topic: 'Óptica Geométrica & Ondas',
     difficulty: 'Intermedio',
     type: 'iframe',
@@ -183,13 +200,14 @@ export const SIMULATORS_CATALOG: Simulator[] = [
     provider: 'PhET Interactive Simulations',
     embedUrl: 'https://phet.colorado.edu/sims/html/bending-light/latest/bending-light_all.html?loc=es',
     description: 'Experimenta con rayos láser al atravesar agua, vidrio y aire. Mide ángulos de refracción y reflexión interna total.',
-    theory: 'La Ley de Snell ($n_1 \\sin\\theta_1 = n_2 \\sin\\theta_2$) describe el cambio de dirección del rayo de luz al cambiar de medio de propagación.',
+    theory: 'La Ley de Snell (n1 sin θ1 = n2 sin θ2) describe el cambio de dirección del rayo de luz al cambiar de medio de propagación.',
     objectives: [
       'Medir índices de refracción de diferentes materiales.',
       'Observar el ángulo crítico y la reflexión interna total.',
       'Analizar la dispersión cromática de la luz blanca mediante prismas.'
     ],
-    tags: ['luz', 'optica', 'refraccion', 'snell', 'laser', 'prismas']
+    tags: ['luz', 'optica', 'refraccion', 'snell', 'laser', 'prismas'],
+    resources: ['Tabla de índices de refracción', 'Guía de óptica geométrica']
   },
   {
     id: 'phet-faradays-law',
@@ -197,6 +215,7 @@ export const SIMULATORS_CATALOG: Simulator[] = [
     title: 'Ley de Inducción de Faraday (PhET)',
     category: 'Física',
     subject: 'Física',
+    subjects: ['Física', 'Electromagnetismo'],
     topic: 'Electromagnetismo',
     difficulty: 'Intermedio',
     type: 'iframe',
@@ -210,7 +229,8 @@ export const SIMULATORS_CATALOG: Simulator[] = [
       'Analizar el efecto de la polaridad del imán (Ley de Lenz).',
       'Evaluar el impacto de la cantidad de espiras en la bobina.'
     ],
-    tags: ['iman', 'faraday', 'induccion', 'bobina', 'electromagnetismo']
+    tags: ['iman', 'faraday', 'induccion', 'bobina', 'electromagnetismo'],
+    resources: ['Principios de inducción electromagnética', 'Ley de Lenz explicada']
   },
   {
     id: 'phet-projectile-motion',
@@ -218,6 +238,7 @@ export const SIMULATORS_CATALOG: Simulator[] = [
     title: 'Movimiento de Proyectiles & Balística (PhET)',
     category: 'Física',
     subject: 'Física',
+    subjects: ['Física', 'Mecánica Clásica'],
     topic: 'Cinemática 2D',
     difficulty: 'Básico',
     type: 'iframe',
@@ -227,11 +248,12 @@ export const SIMULATORS_CATALOG: Simulator[] = [
     description: 'Dispara proyectiles modificando ángulo de tiro, velocidad inicial, masa y resistencia del aire.',
     theory: 'El movimiento parabólico se descompone en un MRU horizontal y un MRUA vertical bajo aceleración gravitatoria constante.',
     objectives: [
-      'Calcular el alcance máximo horizontal $R = (v_0^2 \\sin 2\\theta)/g$.',
+      'Calcular el alcance máximo horizontal R = (v0^2 sin 2θ)/g.',
       'Determinar la altura máxima y tiempo de vuelo.',
       'Analizar la fuerza de arrastre aerodinámico.'
     ],
-    tags: ['proyectiles', 'parabola', 'cinematica', 'gravedad', 'angulo']
+    tags: ['proyectiles', 'parabola', 'cinematica', 'gravedad', 'angulo'],
+    resources: ['Fórmulas del tiro parabólico', 'Ejercicios resueltos de cinemática']
   },
   {
     id: 'phet-energy-forms-changes',
@@ -239,6 +261,7 @@ export const SIMULATORS_CATALOG: Simulator[] = [
     title: 'Transformaciones de Energía & Calor (PhET)',
     category: 'Física',
     subject: 'Física',
+    subjects: ['Física', 'Termodinámica'],
     topic: 'Termodinámica & Conservación',
     difficulty: 'Básico',
     type: 'iframe',
@@ -252,7 +275,8 @@ export const SIMULATORS_CATALOG: Simulator[] = [
       'Evaluar la eficiencia de paneles solares y generadores hidráulicos.',
       'Construir cadenas de transferencia energética.'
     ],
-    tags: ['energia', 'calor', 'conservacion', 'panel solar', 'generador']
+    tags: ['energia', 'calor', 'conservacion', 'panel solar', 'generador'],
+    resources: ['Principios de conservación de energía', 'Diagramas de flujo energético']
   },
   {
     id: 'phet-wave-interference',
@@ -260,6 +284,7 @@ export const SIMULATORS_CATALOG: Simulator[] = [
     title: 'Interferencia & Difracción de Ondas (PhET)',
     category: 'Física',
     subject: 'Física',
+    subjects: ['Física', 'Ondas'],
     topic: 'Ondas & Acústica',
     difficulty: 'Avanzado',
     type: 'iframe',
@@ -270,10 +295,11 @@ export const SIMULATORS_CATALOG: Simulator[] = [
     theory: 'Cuando dos ondas coherentes se superponen, sus amplitudes se suman destructiva o constructivamente dependiendo de su diferencia de fase.',
     objectives: [
       'Visualizar la difracción de ondas a través de una apertura fina.',
-      'Determinar la longitud de onda $\\lambda$ a partir de franjas de interferencia.',
+      'Determinar la longitud de onda λ a partir de franjas de interferencia.',
       'Analizar el efecto de doble rendija de Young.'
     ],
-    tags: ['ondas', 'sonido', 'luz', 'interferencia', 'difraccion', 'rendija']
+    tags: ['ondas', 'sonido', 'luz', 'interferencia', 'difraccion', 'rendija'],
+    resources: ['Experimento de Young', 'Fórmulas de interferencia de ondas']
   },
   {
     id: 'phet-forces-and-motion-basics',
@@ -281,20 +307,22 @@ export const SIMULATORS_CATALOG: Simulator[] = [
     title: 'Fuerzas, Rozamiento & Leyes de Newton (PhET)',
     category: 'Física',
     subject: 'Física',
+    subjects: ['Física', 'Mecánica Clásica'],
     topic: 'Dinámica Clásica',
     difficulty: 'Básico',
     type: 'iframe',
     integrationType: 'embed',
     provider: 'PhET Interactive Simulations',
     embedUrl: 'https://phet.colorado.edu/sims/html/forces-and-motion-basics/latest/forces-and-motion-basics_all.html?loc=es',
-    description: 'Aplica fuerzas sobre cajas y personas para calcular la aceleración nulta o neta considerando fricción estática y cinética.',
-    theory: 'La segunda Ley de Newton ($F_{neta} = m \\cdot a$) relaciona la fuerza resultante aplicada sobre un cuerpo con su cambio de velocidad en el tiempo.',
+    description: 'Aplica fuerzas sobre cajas y personas para calcular la aceleración neta considerando fricción estática y cinética.',
+    theory: 'La segunda Ley de Newton (Fneta = m · a) relaciona la fuerza resultante aplicada sobre un cuerpo con su cambio de velocidad en el tiempo.',
     objectives: [
-      'Calcular la fuerza de fricción estática $\\mu_s N$ y cinética $\\mu_k N$.',
+      'Calcular la fuerza de fricción estática μs N y cinética μk N.',
       'Interpretar diagramas de cuerpo libre (DCL).',
       'Demostrar la primera Ley de Newton (Inercia).'
     ],
-    tags: ['fuerza', 'friccion', 'newton', 'aceleracion', 'dinamica']
+    tags: ['fuerza', 'friccion', 'newton', 'aceleracion', 'dinamica'],
+    resources: ['Leyes de Newton explicadas', 'Guía de diagramas de cuerpo libre']
   },
   {
     id: 'phet-pendulum-lab',
@@ -302,6 +330,7 @@ export const SIMULATORS_CATALOG: Simulator[] = [
     title: 'Laboratorio de Péndulo Simple (PhET)',
     category: 'Física',
     subject: 'Física',
+    subjects: ['Física', 'Mecánica Clásica'],
     topic: 'Movimiento Oscilatorio',
     difficulty: 'Básico',
     type: 'iframe',
@@ -309,13 +338,14 @@ export const SIMULATORS_CATALOG: Simulator[] = [
     provider: 'PhET Interactive Simulations',
     embedUrl: 'https://phet.colorado.edu/sims/html/pendulum-lab/latest/pendulum-lab_all.html?loc=es',
     description: 'Compara dos péndulos en simultáneo variando la longitud del hilo, la masa suspendida y la gravedad de la Tierra, Luna o Júpiter.',
-    theory: 'El período de un péndulo simple para pequeñas amplitudes depende exclusivamente de la longitud del hilo L y de la aceleración de la gravedad g ($T = 2\\pi \\sqrt{L/g}$).',
+    theory: 'El período de un péndulo simple para pequeñas amplitudes depende exclusivamente de la longitud del hilo L y de la aceleración de la gravedad g (T = 2π √(L/g)).',
     objectives: [
       'Verificar que el período T es independiente de la masa.',
-      'Calcular experimentalmente la gravedad $g$ local.',
+      'Calcular experimentalmente la gravedad g local.',
       'Analizar la conservación de energía entre puntos de retorno.'
     ],
-    tags: ['pendulo', 'gravedad', 'periodo', 'longitud', 'oscilacion']
+    tags: ['pendulo', 'gravedad', 'periodo', 'longitud', 'oscilacion'],
+    resources: ['Fórmulas del péndulo simple', 'Guía de oscilaciones armónicas']
   },
   {
     id: 'phys-spring-pendulum',
@@ -323,11 +353,12 @@ export const SIMULATORS_CATALOG: Simulator[] = [
     title: 'Oscilador Masa-Resorte y Péndulo Armónico',
     category: 'Física',
     subject: 'Física',
+    subjects: ['Física', 'Mecánica Clásica'],
     topic: 'Mecánica Clásica & MAS',
     difficulty: 'Intermedio',
     type: 'native',
     integrationType: 'native',
-    provider: 'Nativo LabVirtual',
+    provider: 'Laboratorio Virtual E.E.S.T. N.º 6',
     description: 'Estudio cinemático y energético de un sistema oscilatorio armónico y amortiguado.',
     theory: 'La Ley de Hooke (F = -kx) y la segunda Ley de Newton determinan el movimiento armónico simple. El amortiguamiento reduce progresivamente la amplitud de oscilación.',
     objectives: [
@@ -336,7 +367,8 @@ export const SIMULATORS_CATALOG: Simulator[] = [
       'Observar el efecto del coeficiente de fricción/amortiguamiento.'
     ],
     defaultParams: { mass: 2.0, k: 30, damping: 0.2 },
-    tags: ['resorte', 'oscilacion', 'fuerza', 'newton', 'fisica']
+    tags: ['resorte', 'oscilacion', 'fuerza', 'newton', 'fisica'],
+    resources: ['Ecuaciones del MAS', 'Guía de osciladores amortiguados']
   },
 
   // ================= BIOLOGÍA (6 SIMULADORES) =================
@@ -346,6 +378,7 @@ export const SIMULATORS_CATALOG: Simulator[] = [
     title: 'Selección Natural & Genética de Conejos (PhET)',
     category: 'Biología',
     subject: 'Biología',
+    subjects: ['Biología', 'Genética'],
     topic: 'Evolución & Genética de Poblaciones',
     difficulty: 'Intermedio',
     type: 'iframe',
@@ -359,7 +392,8 @@ export const SIMULATORS_CATALOG: Simulator[] = [
       'Analizar la presión selectiva ejercida por factores bióticos y abióticos.',
       'Graficar el crecimiento poblacional en función de mutaciones.'
     ],
-    tags: ['evolucion', 'seleccion natural', 'genetica', 'adn', 'poblacion']
+    tags: ['evolucion', 'seleccion natural', 'genetica', 'adn', 'poblacion'],
+    resources: ['Principios de selección natural', 'Cuadros de Punnett en genética']
   },
   {
     id: 'phet-gene-expression-essentials',
@@ -367,6 +401,7 @@ export const SIMULATORS_CATALOG: Simulator[] = [
     title: 'Expresión Génica & Transcripción de ADN (PhET)',
     category: 'Biología',
     subject: 'Biología',
+    subjects: ['Biología', 'Biología Molecular'],
     topic: 'Biología Molecular & Genética',
     difficulty: 'Avanzado',
     type: 'iframe',
@@ -380,7 +415,8 @@ export const SIMULATORS_CATALOG: Simulator[] = [
       'Evaluar la tasa de degradación del ARNm y acumulación proteica.',
       'Analizar el efecto de factores de regulación transcripcional.'
     ],
-    tags: ['adn', 'arn', 'proteinas', 'transcripcion', 'genetica', 'ribosoma']
+    tags: ['adn', 'arn', 'proteinas', 'transcripcion', 'genetica', 'ribosoma'],
+    resources: ['Dogma central de biología molecular', 'Código genético y codones']
   },
   {
     id: 'phet-neuron',
@@ -388,20 +424,22 @@ export const SIMULATORS_CATALOG: Simulator[] = [
     title: 'Potencial de Acción & Canales Iónicos en Neuronas (PhET)',
     category: 'Biología',
     subject: 'Biología',
+    subjects: ['Biología', 'Fisiología'],
     topic: 'Neurobiología & Fisiología',
     difficulty: 'Avanzado',
     type: 'iframe',
     integrationType: 'embed',
     provider: 'PhET Interactive Simulations',
     embedUrl: 'https://phet.colorado.edu/sims/html/neuron/latest/neuron_all.html?loc=es',
-    description: 'Estimula la membrana neuronal y observa el flujo de iones de Sodio ($Na^+$) y Potasio ($K^+$) a través de canales dependientes de voltaje.',
+    description: 'Estimula la membrana neuronal y observa el flujo de iones de Sodio (Na+) y Potasio (K+) a través de canales dependientes de voltaje.',
     theory: 'Un potencial de acción ocurre cuando la despolarización de la membrana supera el umbral crítico, abriendo canales de sodio de disparo rápido.',
     objectives: [
       'Medir el potencial de reposo en milivoltios (-70 mV).',
       'Describir las fases de despolarización, repolarización y periodo refractario.',
       'Graficar el potencial eléctrico celular vs. tiempo.'
     ],
-    tags: ['neurona', 'potencial de accion', 'sodio', 'potasio', 'impulso nervioso']
+    tags: ['neurona', 'potencial de accion', 'sodio', 'potasio', 'impulso nervioso'],
+    resources: ['Anatomía de la neurona', 'Ecuación de Nernst y Goldman']
   },
   {
     id: 'bio-microscope-cell',
@@ -409,11 +447,12 @@ export const SIMULATORS_CATALOG: Simulator[] = [
     title: 'Microscopio Virtual & División Celular (Mitosis)',
     category: 'Biología',
     subject: 'Biología',
+    subjects: ['Biología', 'Biología Celular'],
     topic: 'Biología Celular & Mitosis',
     difficulty: 'Básico',
     type: 'native',
     integrationType: 'native',
-    provider: 'Nativo LabVirtual',
+    provider: 'Laboratorio Virtual E.E.S.T. N.º 6',
     description: 'Exploración de la estructura celular vegetal y observación en tiempo real de fases mitóticas.',
     theory: 'La mitosis es el proceso celular mediante el cual una célula madre se divide originando dos células hijas genéticamente idénticas (Profase, Metafase, Anafase, Telofase).',
     objectives: [
@@ -422,7 +461,8 @@ export const SIMULATORS_CATALOG: Simulator[] = [
       'Aplicar tinción histológica digital para resaltar el núcleo celular.'
     ],
     defaultParams: { zoom: 100, focus: 50, phase: 'Metafase' },
-    tags: ['celula', 'mitosis', 'microscopio', 'adn', 'biologia']
+    tags: ['celula', 'mitosis', 'microscopio', 'adn', 'biologia'],
+    resources: ['Fases de la mitosis ilustradas', 'Manejo del microscopio óptico']
   },
   {
     id: 'bio-enzyme-kinetics',
@@ -430,20 +470,22 @@ export const SIMULATORS_CATALOG: Simulator[] = [
     title: 'Cinética Enzimática & Catálisis Bioquímica',
     category: 'Biología',
     subject: 'Biología',
+    subjects: ['Biología', 'Bioquímica'],
     topic: 'Bioquímica & Enzimas',
     difficulty: 'Intermedio',
     type: 'native',
     integrationType: 'native',
-    provider: 'Nativo LabVirtual',
+    provider: 'Laboratorio Virtual E.E.S.T. N.º 6',
     description: 'Analiza la velocidad de reacción sustrato-enzima variando temperatura, pH e inhibidores competitivos.',
-    theory: 'El modelo de Michaelis-Menten describe la tasa de velocidad de catálisis enzimática en función de la concentración de sustrato [S] y la velocidad máxima $V_{max}$.',
+    theory: 'El modelo de Michaelis-Menten describe la tasa de velocidad de catálisis enzimática en función de la concentración de sustrato [S] y la velocidad máxima Vmax.',
     objectives: [
-      'Determinar la constante de Michaelis $K_m$.',
+      'Determinar la constante de Michaelis Km.',
       'Evaluar la desnaturalización térmica de enzimas.',
       'Diferenciar entre inhibición competitiva y no competitiva.'
     ],
     defaultParams: { substrateConc: 10, enzymeConc: 5, temp: 37, pH: 7.4 },
-    tags: ['enzimas', 'bioquimica', 'catalisis', 'sustrato', 'michaelis']
+    tags: ['enzimas', 'bioquimica', 'catalisis', 'sustrato', 'michaelis'],
+    resources: ['Modelo de Michaelis-Menten', 'Factores que afectan la actividad enzimática']
   },
   {
     id: 'bio-photosynthesis-lab',
@@ -451,20 +493,22 @@ export const SIMULATORS_CATALOG: Simulator[] = [
     title: 'Fotosíntesis Virtual & Producción de Oxígeno',
     category: 'Biología',
     subject: 'Biología',
+    subjects: ['Biología', 'Botánica'],
     topic: 'Fisiología Vegetal',
     difficulty: 'Básico',
     type: 'native',
     integrationType: 'native',
-    provider: 'Nativo LabVirtual',
-    description: 'Mide la tasa fotosintética en hojas de Elodea modificando la intensidad de luz solar y concentración de $CO_2$.',
-    theory: 'La fotosíntesis transforma energía lumínica, agua y $CO_2$ en glucosa y $O_2$ dentro de los cloroplastos ($6CO_2 + 6H_2O \\xrightarrow{luz} C_6H_{12}O_6 + 6O_2$).',
+    provider: 'Laboratorio Virtual E.E.S.T. N.º 6',
+    description: 'Mide la tasa fotosintética en hojas de Elodea modificando la intensidad de luz solar y concentración de CO2.',
+    theory: 'La fotosíntesis transforma energía lumínica, agua y CO2 en glucosa y O2 dentro de los cloroplastos (6CO2 + 6H2O -> C6H12O6 + 6O2).',
     objectives: [
       'Contar el número de burbujas de oxígeno liberadas por minuto.',
       'Graficar la tasa de fotosíntesis vs. distancia a la fuente de luz.',
       'Evaluar la fijación de carbono en la fase oscura (Ciclo de Calvin).'
     ],
     defaultParams: { lightIntensity: 80, co2Conc: 0.04, wavelength: 650 },
-    tags: ['fotosintesis', 'plantas', 'cloroplastos', 'oxigeno', 'luz']
+    tags: ['fotosintesis', 'plantas', 'cloroplastos', 'oxigeno', 'luz'],
+    resources: ['Etapas de la fotosíntesis', 'Espectro de absorción de la clorofila']
   },
 
   // ================= ELECTRÓNICA (6 SIMULADORES) =================
@@ -474,6 +518,7 @@ export const SIMULATORS_CATALOG: Simulator[] = [
     title: 'Kit de Construcción de Circuitos DC (PhET)',
     category: 'Electrónica',
     subject: 'Electrónica',
+    subjects: ['Electrónica', 'Electrotecnia'],
     topic: 'Circuitos Eléctricos & Ley de Ohm',
     difficulty: 'Básico',
     type: 'iframe',
@@ -487,7 +532,8 @@ export const SIMULATORS_CATALOG: Simulator[] = [
       'Utilizar el voltímetro y amperímetro digital para realizar mediciones.',
       'Analizar el comportamiento de la corriente al modificar la resistencia de los componentes.'
     ],
-    tags: ['circuito', 'corriente', 'resistencia', 'ohm', 'electronica']
+    tags: ['circuito', 'corriente', 'resistencia', 'ohm', 'electronica'],
+    resources: ['Leyes de Kirchhoff', 'Calculadora Ley de Ohm']
   },
   {
     id: 'phet-circuit-ac',
@@ -495,6 +541,7 @@ export const SIMULATORS_CATALOG: Simulator[] = [
     title: 'Kit de Construcción de Circuitos AC & Capacitores (PhET)',
     category: 'Electrónica',
     subject: 'Electrónica',
+    subjects: ['Electrónica', 'Electrotecnia'],
     topic: 'Corriente Alterna & Capacitancia',
     difficulty: 'Intermedio',
     type: 'iframe',
@@ -502,13 +549,14 @@ export const SIMULATORS_CATALOG: Simulator[] = [
     provider: 'PhET Interactive Simulations',
     embedUrl: 'https://phet.colorado.edu/sims/html/circuit-construction-kit-ac/latest/circuit-construction-kit-ac_all.html?loc=es',
     description: 'Diseña circuitos de corriente alterna con bobinas, capacitores, fuentes armónicas y transformadores.',
-    theory: 'En circuitos de corriente alterna, inductores y condensadores generan reactancia ($X_L$ y $X_C$), produciendo desfasajes temporales entre el voltaje y la corriente.',
+    theory: 'En circuitos de corriente alterna, inductores y condensadores generan reactancia (XL y XC), produciendo desfasajes temporales entre el voltaje y la corriente.',
     objectives: [
       'Medir reactancias capacitivas e inductivas.',
       'Observar la carga y descarga de un capacitor en el tiempo.',
       'Construir un circuito resonante RLC alimentado con CA.'
     ],
-    tags: ['ac', 'corriente alterna', 'capacitor', 'inductor', 'circuito']
+    tags: ['ac', 'corriente alterna', 'capacitor', 'inductor', 'circuito'],
+    resources: ['Impedancia en corriente alterna', 'Diagramas fasoriales']
   },
   {
     id: 'phet-capacitor-lab-basics',
@@ -516,6 +564,7 @@ export const SIMULATORS_CATALOG: Simulator[] = [
     title: 'Capacitadores & Dielectricos de Placas (PhET)',
     category: 'Electrónica',
     subject: 'Electrónica',
+    subjects: ['Electrónica', 'Electrostática'],
     topic: 'Electrostática & Almacenamiento de Carga',
     difficulty: 'Intermedio',
     type: 'iframe',
@@ -523,13 +572,14 @@ export const SIMULATORS_CATALOG: Simulator[] = [
     provider: 'PhET Interactive Simulations',
     embedUrl: 'https://phet.colorado.edu/sims/html/capacitor-lab-basics/latest/capacitor-lab-basics_all.html?loc=es',
     description: 'Modifica el área de placas paralelas y la separación dieléctrica para medir la capacidad (F) y la energía almacenada.',
-    theory: 'La capacitancia $C = \\epsilon_0 A / d$ depende del área de las placas, la distancia entre ellas y la constante dieléctrica del material intermedio.',
+    theory: 'La capacitancia C = ε0 A / d depende del área de las placas, la distancia entre ellas y la constante dieléctrica del material intermedio.',
     objectives: [
-      'Calcular la energía almacenada $E = \\frac{1}{2} C V^2$.',
+      'Calcular la energía almacenada E = 1/2 C V^2.',
       'Analizar el impacto de insertar materiales dieléctricos.',
       'Medir la densidad de carga superficial.'
     ],
-    tags: ['capacitor', 'dieléctrico', 'voltaje', 'carga', 'capacitancia']
+    tags: ['capacitor', 'dieléctrico', 'voltaje', 'carga', 'capacitancia'],
+    resources: ['Ecuaciones de condensadores', 'Tabla de constantes dieléctricas']
   },
   {
     id: 'falstad-circuit-js',
@@ -537,6 +587,7 @@ export const SIMULATORS_CATALOG: Simulator[] = [
     title: 'Simulador RLC & Electrónica Analógica (Falstad)',
     category: 'Electrónica',
     subject: 'Electrónica',
+    subjects: ['Electrónica', 'Electrónica Analógica'],
     topic: 'Filtros AC, Osciloscopio & Transistores',
     difficulty: 'Avanzado',
     type: 'iframe',
@@ -550,7 +601,8 @@ export const SIMULATORS_CATALOG: Simulator[] = [
       'Analizar respuestas en frecuencia de filtros paso bajo y paso alto.',
       'Construir esquemas de potencia y amplificación.'
     ],
-    tags: ['rlc', 'osciloscopio', 'frecuencia', 'ac', 'electronica']
+    tags: ['rlc', 'osciloscopio', 'frecuencia', 'ac', 'electronica'],
+    resources: ['Manual de uso Falstad CircuitJS', 'Diseño de filtros pasivos']
   },
   {
     id: 'elec-semiconductor-diode',
@@ -558,11 +610,12 @@ export const SIMULATORS_CATALOG: Simulator[] = [
     title: 'Diodos Semiconductores & Rectificación',
     category: 'Electrónica',
     subject: 'Electrónica',
+    subjects: ['Electrónica', 'Semiconductores'],
     topic: 'Semiconductores & Fuentes DC',
     difficulty: 'Intermedio',
     type: 'native',
     integrationType: 'native',
-    provider: 'Nativo LabVirtual',
+    provider: 'Laboratorio Virtual E.E.S.T. N.º 6',
     description: 'Analiza la curva característica I-V de diodos PN y rectificadores de media onda y onda completa.',
     theory: 'Un diodo de unión PN permite el paso de corriente únicamente en polarización directa, bloqueando el flujo en polarización inversa.',
     objectives: [
@@ -571,7 +624,8 @@ export const SIMULATORS_CATALOG: Simulator[] = [
       'Medir la tensión de ruptura Zener.'
     ],
     defaultParams: { voltageAC: 12, freq: 50, filterCap: 470 },
-    tags: ['diodo', 'rectificador', 'silicio', 'zener', 'semiconductor']
+    tags: ['diodo', 'rectificador', 'silicio', 'zener', 'semiconductor'],
+    resources: ['Curva I-V del diodo de silicio', 'Diseño de fuentes de alimentación']
   },
   {
     id: 'elec-logic-gates',
@@ -579,11 +633,12 @@ export const SIMULATORS_CATALOG: Simulator[] = [
     title: 'Compuertas Lógicas & Álgebra de Boole',
     category: 'Electrónica',
     subject: 'Electrónica',
+    subjects: ['Electrónica', 'Electrónica Digital'],
     topic: 'Electrónica Digital',
     difficulty: 'Básico',
     type: 'native',
     integrationType: 'native',
-    provider: 'Nativo LabVirtual',
+    provider: 'Laboratorio Virtual E.E.S.T. N.º 6',
     description: 'Interconecta compuertas AND, OR, NOT, NAND y XOR para validar tablas de verdad digitales.',
     theory: 'Los circuitos lógicos procesan señales binarias (0 y 1) regidas por leyes del álgebra booleana para realizar operaciones aritméticas y de control.',
     objectives: [
@@ -592,7 +647,8 @@ export const SIMULATORS_CATALOG: Simulator[] = [
       'Ensamblar un sumador binario completo de 2 bits.'
     ],
     defaultParams: { inputA: 1, inputB: 0, gateType: 'AND' },
-    tags: ['logica', 'boole', 'and', 'or', 'xor', 'digital']
+    tags: ['logica', 'boole', 'and', 'or', 'xor', 'digital'],
+    resources: ['Tablas de verdad fundamentales', 'Teoremas de De Morgan']
   },
 
   // ================= ELECTROMECÁNICA (5 SIMULADORES) =================
@@ -602,11 +658,12 @@ export const SIMULATORS_CATALOG: Simulator[] = [
     title: 'Motor Trifásico & Arranque Estrella-Triángulo (λ-Δ)',
     category: 'Electromecánica',
     subject: 'Electromecánica',
+    subjects: ['Electromecánica', 'Maquinaria Eléctrica'],
     topic: 'Maquinaria & Automatismos Industriales',
     difficulty: 'Avanzado',
     type: 'native',
     integrationType: 'native',
-    provider: 'Nativo LabVirtual',
+    provider: 'Laboratorio Virtual E.E.S.T. N.º 6',
     description: 'Maniobra de conmutación electromagnética con contactores para reducir pico de corriente de arranque.',
     theory: 'El arranque λ - Δ reduce el voltaje aplicado a las bobinas del motor trifásico a 1/√3 en la fase inicial, atenuando el pico de corriente de arranque brusco.',
     objectives: [
@@ -615,7 +672,8 @@ export const SIMULATORS_CATALOG: Simulator[] = [
       'Simular conmutación por temporización industrial.'
     ],
     defaultParams: { timerDelay: 4 },
-    tags: ['motor', 'trifasico', 'estrella', 'triangulo', 'contactor', 'electromecanica']
+    tags: ['motor', 'trifasico', 'estrella', 'triangulo', 'contactor', 'electromecanica'],
+    resources: ['Esquema eléctrico de arranque λ-Δ', 'Cálculo de temporizadores industriales']
   },
   {
     id: 'electromech-pulleys-levers',
@@ -623,20 +681,21 @@ export const SIMULATORS_CATALOG: Simulator[] = [
     title: 'Polipastos, Poleas & Ventaja Mecánica',
     category: 'Electromecánica',
     subject: 'Electromecánica',
+    subjects: ['Electromecánica', 'Mecanismos'],
     topic: 'Mecanismos & Transmisión de Fuerza',
     difficulty: 'Básico',
     type: 'native',
     integrationType: 'native',
-    provider: 'Nativo LabVirtual',
+    provider: 'Laboratorio Virtual E.E.S.T. N.º 6',
     description: 'Calcula el esfuerzo requerido para elevar cargas pesadas combinando poleas fijas, móviles y aparejos factoriales.',
-    theory: 'La ventaja mecánica teórica ($VM = F_{salida} / F_{entrada}$) en polipastos es proporcional al número de segmentos de cuerda que sostienen la carga móvil.',
+    theory: 'La ventaja mecánica teórica (VM = Fsalida / Fentrada) en polipastos es proporcional al número de segmentos de cuerda que sostienen la carga móvil.',
     objectives: [
       'Determinar la fuerza ejercida en aparejos potenciales y factoriales.',
       'Evaluar el rendimiento mecánico considerando el rozamiento de los ejes.',
       'Calcular la distancia de tiro de cuerda requerida.'
     ],
-    defaultParams: { loadWeight: 200, pulleyCount: 4, frictionFactor: 0.05 },
-    tags: ['poleas', 'polipasto', 'ventaja mecanica', 'fuerza', 'cables']
+    tags: ['poleas', 'polipasto', 'ventaja mecanica', 'fuerza', 'cables'],
+    resources: ['Ecuaciones de ventaja mecánica', 'Tipos de aparejos de poleas']
   },
   {
     id: 'electromech-transformer-power',
@@ -644,12 +703,13 @@ export const SIMULATORS_CATALOG: Simulator[] = [
     title: 'Transformador Trifásico de Potencia & Pérdidas',
     category: 'Electromecánica',
     subject: 'Electromecánica',
+    subjects: ['Electromecánica', 'Electrotecnia'],
     topic: 'Transformadores & Redes Eléctricas',
     difficulty: 'Avanzado',
     type: 'native',
     integrationType: 'native',
-    provider: 'Nativo LabVirtual',
-    description: 'Simula la relación de transformación de tensión ($V_1/V_2 = N_1/N_2$) y las pérdidas en el núcleo de hierro.',
+    provider: 'Laboratorio Virtual E.E.S.T. N.º 6',
+    description: 'Simula la relación de transformación de tensión (V1/V2 = N1/N2) y las pérdidas en el núcleo de hierro.',
     theory: 'Un transformador funciona mediante inducción mutua acoplando dos devanados. Las pérdidas incluyen corrientes parásitas de Foucault y pérdidas por histéresis.',
     objectives: [
       'Medir la tensión de secundario a vacío y bajo carga.',
@@ -657,7 +717,8 @@ export const SIMULATORS_CATALOG: Simulator[] = [
       'Determinar la eficiencia del transformador.'
     ],
     defaultParams: { primaryTurns: 1000, secondaryTurns: 100, vPrimary: 220, loadRes: 50 },
-    tags: ['transformador', 'bobinado', 'potencia', 'foucault', 'voltaje']
+    tags: ['transformador', 'bobinado', 'potencia', 'foucault', 'voltaje'],
+    resources: ['Circuito equivalente del transformador', 'Ensayos de vacío y cortocircuito']
   },
   {
     id: 'electromech-frequency-inverter',
@@ -665,20 +726,22 @@ export const SIMULATORS_CATALOG: Simulator[] = [
     title: 'Variador de Frecuencia (VFD) & Control V/f',
     category: 'Electromecánica',
     subject: 'Electromecánica',
+    subjects: ['Electromecánica', 'Automatización Industrial'],
     topic: 'Accionamientos Eléctricos & Control',
     difficulty: 'Avanzado',
     type: 'native',
     integrationType: 'native',
-    provider: 'Nativo LabVirtual',
+    provider: 'Laboratorio Virtual E.E.S.T. N.º 6',
     description: 'Controla la velocidad angular y torque de un motor asíncrono modulando frecuencia (Hz) y voltaje mediante PWM.',
-    theory: 'La velocidad síncrona de un motor de inducción ($n_s = 120 f / P$) varía linealmente con la frecuencia aplicada manteniendo constante la relación Voltaje/Frecuencia.',
+    theory: 'La velocidad síncrona de un motor de inducción (ns = 120 f / P) varía linealmente con la frecuencia aplicada manteniendo constante la relación Voltaje/Frecuencia.',
     objectives: [
       'Ajustar rampas de aceleración y desaceleración del motor.',
       'Analizar la compensación de torque a bajas frecuencias.',
       'Simular el frenado dinámico por inyección de corriente continua.'
     ],
     defaultParams: { setpointFreq: 50, rampTime: 3, motorPoles: 4 },
-    tags: ['vfd', 'variador', 'frecuencia', 'pwm', 'motor', 'torque']
+    tags: ['vfd', 'variador', 'frecuencia', 'pwm', 'motor', 'torque'],
+    resources: ['Curva característica V/f', 'Parámetros principales de un VFD']
   },
   {
     id: 'electromech-pneumatic-actuator',
@@ -686,20 +749,22 @@ export const SIMULATORS_CATALOG: Simulator[] = [
     title: 'Electroneumática & Cilindro de Doble Efecto',
     category: 'Electromecánica',
     subject: 'Electromecánica',
+    subjects: ['Electromecánica', 'Neumática Industrial'],
     topic: 'Automatización Neumática & Solenoides',
     difficulty: 'Intermedio',
     type: 'native',
     integrationType: 'native',
-    provider: 'Nativo LabVirtual',
+    provider: 'Laboratorio Virtual E.E.S.T. N.º 6',
     description: 'Diseña secuencias de avance y retroceso neumático mediante electroválvulas 5/2 biestables y sensores magnéticos.',
-    theory: 'La presión del aire comprimido actuando sobre el émbolo produce una fuerza mecánica lineal ($F = P \\cdot A$) regulada mediante caudales de aire.',
+    theory: 'La presión del aire comprimido actuando sobre el émbolo produce una fuerza mecánica lineal (F = P · A) regulada mediante caudales de aire.',
     objectives: [
-      'Construir un circuito de autorretención con reles electromagnéticos.',
+      'Construir un circuito de autorretención con relés electromagnéticos.',
       'Ajustar reguladores de caudal para controlar la velocidad del vástago.',
       'Programar secuencias neumáticas continuas A+ B+ A- B-.'
     ],
     defaultParams: { pressure: 6, cylinderBore: 40, valveType: '5/2 Biestable' },
-    tags: ['neumatica', 'cilindro', 'solenoide', 'aire', 'electroneumatica']
+    tags: ['neumatica', 'cilindro', 'solenoide', 'aire', 'electroneumatica'],
+    resources: ['Simbología neumática ISO 1219', 'Esquemas de mando electroneumático']
   }
 ];
 
@@ -718,11 +783,11 @@ export function getSimulator(slug: string): Simulator | undefined {
 }
 
 export function getProvider(slug: string): string | undefined {
-  return getSimulator(slug)?.provider ?? 'Nativo';
+  return getSimulator(slug)?.provider ?? 'Laboratorio Virtual E.E.S.T. N.º 6';
 }
 
 export function getSubjects(slug: string): string[] {
   const sim = getSimulator(slug);
   if (!sim) return [];
-  return [sim.subject || sim.category];
+  return sim.subjects || [sim.subject || sim.category];
 }
