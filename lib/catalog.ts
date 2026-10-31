@@ -20,251 +20,99 @@ export interface Simulator {
 
 export const SIMULATORS_CATALOG: Simulator[] = [
   {
-    id: 'phet-circuit-dc',
-    slug: 'phet-circuit-dc',
-    title: 'Kit de Construcción de Circuitos DC (PhET)',
-    category: 'Electrónica',
-    subject: 'Electrónica',
-    topic: 'Circuitos Eléctricos & Ley de Ohm',
-    difficulty: 'Básico',
-    type: 'iframe',
-    integrationType: 'embed',
-    provider: 'PhET Interactive Simulations',
-    embedUrl: 'https://phet.colorado.edu/sims/html/circuit-construction-kit-dc/latest/circuit-construction-kit-dc_all.html?loc=es',
-    description: 'Experimenta con resistencias, condensadores, bombillas e interruptores en tiempo real.',
-    theory: 'La Ley de Ohm (V = I · R) establece la relación proporcional entre el voltaje aplicado y la corriente eléctrica que circula por un conductor.',
-    objectives: [
-      'Construir circuitos en serie y paralelo.',
-      'Utilizar el voltímetro y amperímetro digital para realizar mediciones.'
-    ]
-  },
-  {
-    id: 'phet-build-atom',
-    slug: 'phet-build-atom',
-    title: 'Construye un Átomo (PhET)',
-    category: 'Química',
-    subject: 'Química',
-    topic: 'Estructura Atómica & Tabla Periódica',
-    difficulty: 'Básico',
-    type: 'iframe',
-    integrationType: 'embed',
-    provider: 'PhET Interactive Simulations',
-    embedUrl: 'https://phet.colorado.edu/sims/html/build-an-atom/latest/build-an-atom_all.html?loc=es',
-    description: 'Construye átomos agregando protones, neutrones y electrones. Observa la masa, carga e isótopos.',
-    theory: 'El número atómico (Z) define el elemento químico mediante sus protones, mientras que la diferencia de neutrones genera isótopos.',
-    objectives: [
-      'Identificar la relación entre protones, neutrones y electrones.',
-      'Determinar si un átomo es neutro o un ión (anión/catión).'
-    ]
-  },
-  {
-    id: 'phet-states-matter',
-    slug: 'phet-states-matter',
-    title: 'Estados de la Materia (PhET)',
+    id: 'phet-charges-and-fields',
+    slug: 'phet-charges-and-fields',
+    title: 'Cargas y Campos Eléctricos (PhET)',
     category: 'Física',
     subject: 'Física',
-    topic: 'Termodinámica & Fase de los Gases',
-    difficulty: 'Básico',
+    topic: 'Electromagnetismo & Campo Eléctrico',
+    difficulty: 'Intermedio',
     type: 'iframe',
     integrationType: 'embed',
     provider: 'PhET Interactive Simulations',
-    embedUrl: 'https://phet.colorado.edu/sims/html/states-of-matter/latest/states-of-matter_all.html?loc=es',
-    description: 'Calienta, enfría y comprime átomos y moléculas para observar las fases sólida, líquida y gaseosa.',
-    theory: 'El comportamiento cinético molecular explica que la temperatura corresponde al promedio de energía cinética de las partículas.',
+    embedUrl: 'https://phet.colorado.edu/sims/html/charges-and-fields/latest/charges-and-fields_all.html?loc=es',
+    description: 'Coloca cargas positivas y negativas en el espacio y observa las líneas de campo eléctrico, superficies equipotenciales y voltaje.',
+    theory: 'La fuerza y el campo eléctrico generado por una distribución de cargas sigue la Ley de Coulomb ($E = k \\cdot q / r^2$).',
     objectives: [
-      'Relacionar la presión, temperatura y volumen en una fase dada.',
-      'Observar las variaciones de atracción intermolecular entre sólidos, líquidos y gases.'
+      'Visualizar la intensidad y dirección del campo eléctrico alrededor de un dipolo.',
+      'Trazar líneas de potencial de igual valor (equipotenciales).'
     ]
   },
   {
-    id: 'phet-natural-selection',
-    slug: 'phet-natural-selection',
-    title: 'Selección Natural y Genética (PhET)',
+    id: 'phet-gas-properties',
+    slug: 'phet-gas-properties',
+    title: 'Propiedades e Introducción a los Gases (PhET)',
+    category: 'Física',
+    subject: 'Física',
+    topic: 'Termodinámica & Leyes de los Gases',
+    difficulty: 'Intermedio',
+    type: 'iframe',
+    integrationType: 'embed',
+    provider: 'PhET Interactive Simulations',
+    embedUrl: 'https://phet.colorado.edu/sims/html/gases-intro/latest/gases-intro_all.html?loc=es',
+    description: 'Inyecta moléculas de gas en un contenedor sellado y varia la temperatura, presión y volumen.',
+    theory: 'La ley ideal de los gases ($P \\cdot V = n \\cdot R \\cdot T$) relaciona las variables termodinámicas de un sistema cerrado.',
+    objectives: [
+      'Analizar la relación entre la temperatura y la velocidad media molecular.',
+      'Evaluar cómo cambia la presión al variar el volumen del recipiente.'
+    ]
+  },
+  {
+    id: 'phet-acid-base-solutions',
+    slug: 'phet-acid-base-solutions',
+    title: 'Soluciones Ácido-Base Fuerte y Débil (PhET)',
+    category: 'Química',
+    subject: 'Química',
+    topic: 'Química Analítica & Disociación',
+    difficulty: 'Intermedio',
+    type: 'iframe',
+    integrationType: 'embed',
+    provider: 'PhET Interactive Simulations',
+    embedUrl: 'https://phet.colorado.edu/sims/html/acid-base-solutions/latest/acid-base-solutions_all.html?loc=es',
+    description: 'Compara la disociación molecular de ácidos y bases fuertes frente a débiles a nivel microscópico.',
+    theory: 'Los ácidos fuertes se disocian completamente en agua, mientras que los débiles alcanzan un equilibrio químico ($K_a$).',
+    objectives: [
+      'Relacionar la conductividad eléctrica de la solución con el grado de disociación.',
+      'Medir la concentración de $H_3O^+$ y $OH^-$ con tiras indicadoras de pH.'
+    ]
+  },
+  {
+    id: 'phet-gene-expression',
+    slug: 'phet-gene-expression',
+    title: 'Expresión Génica y Síntesis de Proteínas (PhET)',
     category: 'Biología',
     subject: 'Biología',
-    topic: 'Evolución & Genética de Poblaciones',
-    difficulty: 'Intermedio',
-    type: 'iframe',
-    integrationType: 'embed',
-    provider: 'PhET Interactive Simulations',
-    embedUrl: 'https://phet.colorado.edu/sims/html/natural-selection/latest/natural-selection_all.html?loc=es',
-    description: 'Explora cómo los factores ambientales impulsan la adaptación y mutación en especies.',
-    theory: 'La selección natural favorece la reproducción de individuos cuyas mutaciones genéticas les otorgan ventajas adaptativas ante depredadores o clima.',
-    objectives: [
-      'Analizar el impacto de mutaciones dominantes y recesivas.',
-      'Simular presiones de selección como depredadores y disponibilidad de alimento.'
-    ]
-  },
-  {
-    id: 'phet-energy-forms',
-    slug: 'phet-energy-forms',
-    title: 'Formas y Cambios de Energía (PhET)',
-    category: 'Electromecánica',
-    subject: 'Electromecánica',
-    topic: 'Conversión de Energía & Eficiencia Termodinámica',
-    difficulty: 'Intermedio',
-    type: 'iframe',
-    integrationType: 'embed',
-    provider: 'PhET Interactive Simulations',
-    embedUrl: 'https://phet.colorado.edu/sims/html/energy-forms-and-changes/latest/energy-forms-and-changes_all.html?loc=es',
-    description: 'Combina sistemas mecánicos, térmicos, hidráulicos y fotovoltaicos para generar y transformar energía.',
-    theory: 'El Principio de Conservación de la Energía establece que la energía no se crea ni se destruye, solo se transforma.',
-    objectives: [
-      'Identificar las pérdidas térmicas y disipación por fricción en sistemas mecánicos.',
-      'Analizar la eficiencia de conversión entre energía hidráulica, solar y eléctrica.'
-    ]
-  },
-  {
-    id: 'phet-periodic-table-trends',
-    slug: 'phet-periodic-table-trends',
-    title: 'Tabla Periódica Interactiva & Tendencias Atómicas',
-    category: 'Química',
-    subject: 'Química',
-    topic: 'Química Inorgánica & Propiedades Periódicas',
-    difficulty: 'Básico',
-    type: 'iframe',
-    integrationType: 'embed',
-    provider: 'PhET Interactive Simulations',
-    embedUrl: 'https://phet.colorado.edu/sims/html/build-an-atom/latest/build-an-atom_all.html?loc=es',
-    description: 'Explora la tabla periódica, configuraciones electrónicas y tendencia de electronegatividad y radio atómico.',
-    theory: 'Las propiedades periódicas varían periódicamente en la tabla según la carga nuclear efectiva y la distribución de electrones.',
-    objectives: [
-      'Relacionar la posición del elemento con su masa y número atómico.',
-      'Comprender la formación de iones estables (octeto completo).'
-    ]
-  },
-  {
-    id: 'phet-bending-light',
-    slug: 'phet-bending-light',
-    title: 'Experimento de Refracción y Reflexión de la Luz (Óptica)',
-    category: 'Física',
-    subject: 'Física',
-    topic: 'Óptica Geométrica & Ley de Snell',
-    difficulty: 'Intermedio',
-    type: 'iframe',
-    integrationType: 'embed',
-    provider: 'PhET Interactive Simulations',
-    embedUrl: 'https://phet.colorado.edu/sims/html/bending-light/latest/bending-light_all.html?loc=es',
-    description: 'Apunta un láser a través de prismas y medios de distinto índice de refracción (agua, vidrio, aire).',
-    theory: 'La Ley de Snell ($n_1 \\sin \\theta_1 = n_2 \\sin \\theta_2$) describe cómo se desvía la luz al cambiar de medio de propagación.',
-    objectives: [
-      'Calcular el índice de refracción $n$ de materiales desconocidos.',
-      'Observar el fenómeno de reflexión interna total y el ángulo crítico.'
-    ]
-  },
-  {
-    id: 'phet-faraday-law',
-    slug: 'phet-faraday-law',
-    title: 'Experimento de Inducción de Faraday & Electromagnetismo',
-    category: 'Electromecánica',
-    subject: 'Electromecánica',
-    topic: 'Electromagnetismo & Generación Eléctrica',
-    difficulty: 'Intermedio',
-    type: 'iframe',
-    integrationType: 'embed',
-    provider: 'PhET Interactive Simulations',
-    embedUrl: 'https://phet.colorado.edu/sims/html/faradays-law/latest/faradays-law_all.html?loc=es',
-    description: 'Mueve un imán a través de bobinas electromagnéticas para generar fuerza electromotriz e iluminar una bombilla.',
-    theory: 'La Ley de Inducción de Faraday establece que un campo magnético variable en el tiempo induce una corriente eléctrica en un conductor.',
-    objectives: [
-      'Relacionar la velocidad de movimiento del imán con el voltaje inducido.',
-      'Comprender el principio de funcionamiento fundamental de generadores y motores.'
-    ]
-  },
-  {
-    id: 'falstad-circuit-js',
-    slug: 'falstad-circuit-js',
-    title: 'Simulador RLC & Electrónica (Falstad)',
-    category: 'Electrónica',
-    subject: 'Electrónica',
-    topic: 'Electrónica Analógica & AC',
+    topic: 'Genética Molecular & ADN',
     difficulty: 'Avanzado',
     type: 'iframe',
     integrationType: 'embed',
-    provider: 'Falstad Lab',
-    embedUrl: 'https://www.falstad.com/circuit/circuitjs.html',
-    description: 'Laboratorio profesional de circuitos analógicos y digitales con osciloscopio gráfico.',
-    theory: 'Permite simular respuestas de corriente alterna, filtros de frecuencia, transistores y amplificadores.',
+    provider: 'PhET Interactive Simulations',
+    embedUrl: 'https://phet.colorado.edu/sims/html/gene-expression-essentials/latest/gene-expression-essentials_all.html?loc=es',
+    description: 'Simula el proceso de transcripción de ADN a ARN mensajero y traducción en el ribosoma para sintetizar proteínas.',
+    theory: 'El dogma central de la biología molecular explica la transferencia de información genómica desde el ADN hasta las proteínas funcionales.',
     objectives: [
-      'Visualizar la forma de onda de corriente y voltaje en el osciloscopio.',
-      'Analizar respuestas en frecuencia de filtros paso bajo y paso alto.'
+      'Identificar el rol de los factores de transcripción en la regulación génica.',
+      'Observar la interacción entre ARN polimerasa y el ribosoma.'
     ]
   },
   {
-    id: 'phys-spring-pendulum',
-    slug: 'phys-spring-pendulum',
-    title: 'Oscilador Masa-Resorte y Péndulo',
-    category: 'Física',
-    subject: 'Física',
-    topic: 'Mecánica Clásica',
+    id: 'phet-capacitor-lab',
+    slug: 'phet-capacitor-lab',
+    title: 'Laboratorio de Condensadores y Dieléctricos (PhET)',
+    category: 'Electrónica',
+    subject: 'Electrónica',
+    topic: 'Capacitancia & Almacenamiento de Energía',
     difficulty: 'Intermedio',
-    type: 'native',
-    integrationType: 'native',
-    provider: 'Laboratorio Virtual',
-    description: 'Estudio cinemático y energético de un sistema oscilatorio armónico y amortiguado.',
-    theory: 'La Ley de Hooke (F = -kx) y la segunda Ley de Newton determinan el movimiento armónico simple.',
+    type: 'iframe',
+    integrationType: 'embed',
+    provider: 'PhET Interactive Simulations',
+    embedUrl: 'https://phet.colorado.edu/sims/html/capacitor-lab-basics/latest/capacitor-lab-basics_all.html?loc=es',
+    description: 'Modifica el área de placas paralelas y la separación entre ellas para almacenar carga eléctrica.',
+    theory: 'La capacitancia ($C = \\epsilon \\cdot A / d$) depende directamente de la geometría de las placas y de la constante dieléctrica del material entre ellas.',
     objectives: [
-      'Determinar el período de oscilación T en función de la masa m y constante k.',
-      'Analizar la conservación de energía.'
-    ],
-    defaultParams: { mass: 2.0, k: 30, gravity: 9.8, damping: 0.2, length: 150 }
-  },
-  {
-    id: 'chem-acid-base',
-    slug: 'chem-acid-base',
-    title: 'Titulación Ácido-Base y pH-metría',
-    category: 'Química',
-    subject: 'Química',
-    topic: 'Química Analítica & pH',
-    difficulty: 'Básico',
-    type: 'native',
-    integrationType: 'native',
-    provider: 'Laboratorio Virtual',
-    description: 'Simulador de volumetría de neutralización con indicación cromática de fenolftaleína.',
-    theory: 'La titulación determina la concentración de un ácido disuelto mediante la adición controlada de una base.',
-    objectives: [
-      'Identificar el punto de viraje de pH empleando indicación óptica.',
-      'Construir la curva de titulación pH vs. Volumen de NaOH agregado.'
-    ],
-    defaultParams: { acidConc: 0.1, baseConc: 0.1, baseAdded: 0, acidVol: 25 }
-  },
-  {
-    id: 'bio-microscope-cell',
-    slug: 'bio-microscope-cell',
-    title: 'Microscopio Virtual & División Celular',
-    category: 'Biología',
-    subject: 'Biología',
-    topic: 'Biología Celular & Mitosis',
-    difficulty: 'Básico',
-    type: 'native',
-    integrationType: 'native',
-    provider: 'Laboratorio Virtual',
-    description: 'Exploración de la estructura celular vegetal y observación en tiempo real de fases mitóticas.',
-    theory: 'La mitosis es el proceso celular mediante el cual una célula madre se divide originando dos células hijas.',
-    objectives: [
-      'Aprender a calibrar el enfoque de un microscopio óptico.',
-      'Reconocer los cromosomas organizados en la placa ecuatorial.'
-    ],
-    defaultParams: { zoom: 100, focus: 50, phase: 'Metafase' }
-  },
-  {
-    id: 'electromech-star-delta',
-    slug: 'electromech-star-delta',
-    title: 'Motor Trifásico & Arranque Estrella-Triángulo',
-    category: 'Electromecánica',
-    subject: 'Electromecánica',
-    topic: 'Maquinaria & Automatización',
-    difficulty: 'Avanzado',
-    type: 'native',
-    integrationType: 'native',
-    provider: 'Laboratorio Virtual',
-    description: 'Maniobra de conmutación electromagnética para reducir pico de corriente en el arranque.',
-    theory: 'El arranque λ - Δ reduce el voltaje aplicado a las bobinas del motor trifásico a 1/√3 en la fase inicial.',
-    objectives: [
-      'Analizar los diagramas de potencia y control electromecánico.',
-      'Monitorear la rampa de velocidad (RPM) y la curva de corriente absorbida.'
-    ],
-    defaultParams: { timerDelay: 4 }
+      'Medir el voltaje acumulado y el campo eléctrico en el capacitor.',
+      'Calcular la energía almacenada en el campo eléctrico ($E = \\frac{1}{2} C V^2$).'
+    ]
   }
 ];
 
